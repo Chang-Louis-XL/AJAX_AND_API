@@ -63,19 +63,34 @@
       }
     ) */   
 
+
+    // // 這行程式碼使用 jQuery 的 $.ajax() 方法來發送 AJAX 請求。
     //      $.ajax(
     //   {
+    //     // 這行程式碼指定 AJAX 請求的 URL。在本例中，URL 是 https://kktix.com/events.json，它指向一個 JSON 格式的檔案，其中包含了活動資訊。
     //     url:'https://kktix.com/events.json',
+    //     // 這行程式碼指定 AJAX 請求的 HTTP 方法。在本例中，方法是 GET，表示將從伺服器獲取資料。
     //     type:'get',
+    //     // 這行程式碼指定當 AJAX 請求成功時要執行的函式。該函式的參數 data 是伺服器返回的 JSON 資料。
     //     success:(data)=>{
+    //     // 這行程式碼將伺服器返回的 JSON 資料印出至瀏覽器開發人員工具的控制臺。
     //       console.log(data);
+    //     //   這行程式碼使用 document.querySelector() 方法來選取 DOM 中具有 .title 類別的元素。該元素通常是一個標題元素，用於顯示活動標題。
     //     let title=document.querySelector('.title')
+    //     // 程式碼行會將 data.title 的值設定為 title 元素的內部 HTML 內容。
+    //     // 伺服器返回的 title 屬性值設定為標題元素的 innerHTML 屬性。這將更新標題元素的內容，使其顯示活動標題。
     //     title.innerHTML=data.title
+    //     // 這行程式碼將伺服器返回的 entry 屬性值賦予變數 events。該屬性通常包含一個陣列，其中包含了活動資訊。
     //     let events=data.entry
+    //     // 這行程式碼使用 document.querySelector() 方法來選取 DOM 中具有 ul 標籤的元素。該元素通常是一個列表元素，用於顯示活動列表。
     //     let ul=document.querySelector('ul')
+    //     // 這行程式碼使用 Array.prototype.forEach() 方法來遍歷 events 陣列中的每個元素。該方法的參數 event 是當前元素，idx 是當前元素的索引。
     //     events.forEach((event,idx)=>{
+    //     // 這行程式碼使用 document.createElement() 方法來建立一個新的 li 元素。該元素將用於顯示活動資訊。
     //         let li=document.createElement('li')
-    //         li.innerHTML=`${idx+1}. ${event.title}`
+    //     // 這行程式碼將當前元素的索引和標題設定為 li 元素的 innerHTML 屬性。這將更新 li 元素的內容，使其顯示活動編號和標題。
+    //         li.innerHTML=`${idx+1}. ${event}`
+    //     // 這行程式碼將 li 元素新增至 ul 元素的子元素中。這將在活動列表中新增一個新的列表項。
     //         ul.appendChild(li)
     //     })
     //     },
@@ -87,13 +102,10 @@
     
     //利用$.get()方法傳送請求並取得回應
 
-    $.get('https://kktix.com/events.json',(data)=>{
-
-$(".title").html(data.title)
-//let events=data.entry
-data.entry.forEach(event=>{
-    $("ul").append("<li>"+event.title+"</li>")
-})
-
-})
+    $.get('https://kktix.com/events.json', (data) => {
+  $(".title").html(data.title);
+  data.entry.forEach((event, idx) => {
+    $("ul").append(`<li>${idx + 1}. ${event.title}</li>`);
+  });
+});
   </script>
