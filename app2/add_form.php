@@ -76,6 +76,7 @@
 </html>
 <script>
     function send() {
+        // 建立一個包含表單數據的物件 'form'
         let form = {
             uni_id: $("#uni_id").val(),
             classroom: $("#classroom").val(),
@@ -89,13 +90,21 @@
             major: $("#major").val(),
             secondary: $("#secondary").val()
         }
-        $.post("./api/insert.php", form, function(res) {
+        // 向指定的 URL (./api/insert.php) 發送 HTTP POST 請求。
+        // form 對象被作為數據發送到伺服器。
+        // 當伺服器響應時，執行回調函數。
+        $.post("./api/insert.php", form, function (res) {
+            // 請求成功後的回調函數，參數 'res' 是伺服器返回的響應
             if (res == '1') {
+                // 如果伺服器返回 '1'，表示新增成功
                 alert('新增成功')
+                // 調用 getClassroomStudents 函數並傳入表單中的 'classroom' 值
                 getClassroomStudents(form.classroom);
             } else {
+                // 如果伺服器返回的不是 '1'，表示新增失敗
                 alert('新增失敗')
             }
+            // window.location.href = './api/insert.php';
         })
     }
 

@@ -40,11 +40,14 @@
 </body>
 </html>
 <script>
+
+// 呼叫定義的 loadpage 函數，並傳入 'results/main.html' 作為參數。這會觸發 loadpage 函數的執行，從而載入 'results/main.html' 的內容並插入到 HTML 中 class 為 .content 的元素內。
   loadpage('results/main.html');  
-  //建立一個函式loadpage(page)用來載入內容至content區塊中
+  // 定義一個名為 loadpage 的函數，這個函數接受一個參數 page，代表將要載入的頁面。
   function loadpage(page){
-    //$(".content").load(page);
+// 使用 jQuery 的 $.get 方法從伺服器請求資料。這裡的 page 參數是目標頁面的 URL。當請求成功時，會執行回調函數，回調函數的參數 p 代表伺服器回傳的資料。
     $.get(page,(p)=>{
+      // 使用 jQuery 選擇器選擇 class 為 .content 的 HTML 元素，並將回調函數 p（即請求得到的資料）設定為這個元素的 HTML 內容。
       $('.content').html(p);})
   }
   
