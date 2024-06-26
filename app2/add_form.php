@@ -106,6 +106,8 @@
             }
             // window.location.href = './api/insert.php';
         })
+
+        
     }
 
 </script>
