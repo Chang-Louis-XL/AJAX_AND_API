@@ -94,7 +94,7 @@
         // form 對象被作為數據發送到伺服器。
         // 當伺服器響應時，執行回調函數。
         $.post("./api/insert.php", form, function (res) {
-            console.log(res)
+            // console.log(res)
             // 請求成功後的回調函數，參數 'res' 是伺服器返回的響應
             if (res == '1') {
                 // 如果伺服器返回 '1'，表示新增成功

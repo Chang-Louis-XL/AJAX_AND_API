@@ -4,13 +4,13 @@ session_start();
 class DB
 {
     protected $table;
-    protected $dsn = "mysql:host=localhost;charset=utf8;dbname=student";
+    protected $dsn = "mysql:host=localhost;charset=utf8;dbname=s1130106";
     protected $pdo;
 
     public function __construct($table)
     {
         $this->table = $table;
-        $this->pdo = new PDO($this->dsn, 'root', '');
+        $this->pdo = new PDO($this->dsn, 's1130106', 's1130106');
     }
 
     public function all(...$arg)
@@ -115,8 +115,8 @@ class DB
 
 function q($sql)
 {
-    $dsn = "mysql:host=localhost;charset=utf8;dbname=student";
-    $pdo = new PDO($dsn, 'root', '');
+    $dsn = "mysql:host=localhost;charset=utf8;dbname=s1130106";
+    $pdo = new PDO($dsn, 's1130106', 's1130106');
     return $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 }
 
